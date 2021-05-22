@@ -3,6 +3,7 @@
 import secrets
 import sys
 import argparse
+import math
 
 parser = argparse.ArgumentParser()
 parser.add_argument("file", help='word list, one word per line')
@@ -20,5 +21,10 @@ args = parser.parse_args()
 with open(args.file) as f:
     words = [word.strip() for word in f]
 
+size = len(words)
+entropy_per_word = math.log(size, 2)
+even_size = 1 << int(entropy_per_word)
+even_words = words[:even_size]
+
 for n in range(args.phrase_count):
-    print(' '.join(secrets.choice(words) for i in range(args.word_count))) 
+    print(' '.join(secrets.choice(even_words) for i in range(args.word_count))) 
