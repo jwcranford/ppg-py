@@ -16,7 +16,10 @@ parser.add_argument("-n", "--phrase_count",
     default=20,
     type=int)
 parser.add_argument("-d", "--digit",
-    help="adds a single digit at a random place between the words of the passphrase",
+    help="adds a single digit at a random place in the passphrase",
+    action="store_true")
+parser.add_argument("-s", '--special',
+    help='adds a single special character at a random place in the passphrase',
     action="store_true")
 
 args = parser.parse_args()
@@ -33,9 +36,14 @@ even_words = words[:even_size]
 # avoid confusion with o and l.
 digits = ['2', '3', '4', '5', '6', '7', '8', '9']
 
+special = ['!', '@', '#', '$', '%', '^', '*', '/']
+
 for n in range(args.phrase_count):
     phrase = [secrets.choice(even_words) for i in range(args.word_count)]
     if (args.digit):
         location = secrets.choice(range(0, len(phrase) + 1))
         phrase.insert(location, secrets.choice(digits))
+    if (args.special):
+        location = secrets.choice(range(0, len(phrase) + 1))
+        phrase.insert(location, secrets.choice(special))
     print(' '.join(phrase)) 
