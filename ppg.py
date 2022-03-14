@@ -36,7 +36,7 @@ even_words = words[:even_size]
 # avoid confusion with o and l.
 digits = ['2', '3', '4', '5', '6', '7', '8', '9']
 
-special = ['!', '@', '#', '$', '%', '^', '*', '/']
+special = ['!', '@', '#', '$', '.', '^', '*', '/']
 
 for n in range(args.phrase_count):
     phrase = [secrets.choice(even_words) for i in range(args.word_count)]
