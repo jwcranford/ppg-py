@@ -101,16 +101,29 @@ length, following the guidance at
 http://world.std.com/~reinhold/dicewarefaq.html#computer.
 
 Examples:
-* The diceware8k.txt file available at 
+* The diceware8k.txt file distributed with ppg-py and available at 
 https://theworld.com/~reinhold/diceware8k.txt contains exactly 8192 
 words, so the entire file is used.
 * If another file were specified at the command-line with slightly fewer words,
 then only the first 4096 lines of the file would be used. 
 
 
-## Resources for word lists
+## Word lists
 
-Word lists can be constructed from
+The diceware8k.txt file from www.diceware.com is distributed with
+pphrasegen under the Creative Commons CC-BY 4.0 license
+(https://creativecommons.org/licenses/by/4.0/). See the LICENSE
+file for details.
+
+<table>
+<tr>
+    <th>Usable Entries</th>                     <td>8192</td>
+</tr><tr>
+    <th>Average word length</th>                 <td>4.1</td>
+</tr>
+</table>
+
+Alternative word lists can be constructed from
 * the standard diceware files at www.diceware.com  
 * https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases
 * /usr/share/dict/words on a Unix-like computer
