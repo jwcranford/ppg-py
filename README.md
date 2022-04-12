@@ -71,17 +71,31 @@ ppg.py requires Python 3.
 ```
 usage: ppg.py [-h] [-w WORD_COUNT] [-n PHRASE_COUNT] [-d] [-s] file
 
+ppg.py is a command-line tool to generate passphrases.
+
 positional arguments:
-  file                  word list, one word per line
+  file                  word list, one word per line. See diceware8k.txt for
+                        an example
 
 optional arguments:
   -h, --help            show this help message and exit
   -w WORD_COUNT, --word_count WORD_COUNT
-                        number of words in the passphrase (default is 5)
+                        number of words in the passphrase
   -n PHRASE_COUNT, --phrase_count PHRASE_COUNT
-                        number of passphrases to generate (default is 20)
-  -d, --digit           adds a single digit at a random place in the passphrase
-  -s, --special         adds a single special character at a random place in the passphrase
+                        number of passphrases to generate (default is 1)
+  -d, --digit           adds a single digit at a random place in the
+                        passphrase
+  -s, --special         adds a single special character at a random place in
+                        the passphrase
+
+By default, the number of words in each passphrase depends on the size
+of the input file. For example:
+    # of words in file   # of words in passphrase
+    ------------------   ------------------------
+                1024                          8
+                2048                          7
+                4096                          7
+                8192                          6
 ```
 
 Digits used for the -d|--digit argument are digits 2-9; digits 0 and 1 are avoided to
