@@ -33,6 +33,9 @@ parser.add_argument("-d", "--digit",
 parser.add_argument("-s", '--special',
     help='adds a single special character at a random place in the passphrase',
     action="store_true")
+parser.add_argument("-p", '--no_spaces',
+    help='do not display spaces in the generated passwords',
+    action='store_true')
 
 args = parser.parse_args()
 
@@ -63,4 +66,7 @@ for n in range(args.phrase_count):
     if (args.special):
         location = secrets.choice(range(0, len(phrase) + 1))
         phrase.insert(location, secrets.choice(special))
-    print(' '.join(phrase)) 
+    if (args.no_spaces):
+        print(''.join(phrase)) 
+    else:
+        print(' '.join(phrase)) 
